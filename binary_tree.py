@@ -16,3 +16,20 @@ class BinaryTree:
                 self.right = BinaryTree(value)
             else:
                 self.right.child(value)
+
+
+def BT_to_list(node: BinaryTree, list_to_fill=None):
+    data = [] if list_to_fill is None else list_to_fill
+
+    if node is None:
+        return
+
+    if node.left is None and node.right is None:
+        data.append(node.value)
+        return
+
+    BT_to_list(node.left, data)
+    data.append(node.value)
+    BT_to_list(node.right, data)
+
+    return data
