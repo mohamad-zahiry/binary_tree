@@ -1,4 +1,5 @@
-class BinaryTree:
+class BST:
+    # Binary Search Tree
     def __init__(self, value) -> None:
         self.value = value
         self.left = None
@@ -7,18 +8,18 @@ class BinaryTree:
     def insert(self, value):
         if value < self.value:
             if self.left is None:
-                self.left = BinaryTree(value)
+                self.left = BST(value)
             else:
                 self.left.insert(value)
 
         elif value > self.value:
             if self.right is None:
-                self.right = BinaryTree(value)
+                self.right = BST(value)
             else:
                 self.right.insert(value)
 
 
-def BT_to_list(node: BinaryTree, list_to_fill=None):
+def to_list(node: BST, list_to_fill=None):
     data = [] if list_to_fill is None else list_to_fill
 
     if node is None:
@@ -28,8 +29,8 @@ def BT_to_list(node: BinaryTree, list_to_fill=None):
         data.append(node.value)
         return
 
-    BT_to_list(node.left, data)
+    to_list(node.left, data)
     data.append(node.value)
-    BT_to_list(node.right, data)
+    to_list(node.right, data)
 
     return data
