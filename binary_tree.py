@@ -19,6 +19,23 @@ class BST:
                 self.right.insert(value)
 
 
+def search(root, value):
+    if root is None:
+        return False
+
+    elif value == root.value:
+        return root
+
+    elif value > root.value:
+        return search(root.right, value)
+
+    elif value < root.value:
+        return search(root.left, value)
+
+    else:
+        return False
+
+
 def to_list(node: BST, list_to_fill=None):
     data = [] if list_to_fill is None else list_to_fill
 
