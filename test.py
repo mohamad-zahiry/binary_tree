@@ -8,7 +8,7 @@ def main():
 
     integers = BinaryTree(randint(0, 100))
     for x in range(20):
-        integers.child(randint(0, 100))
+        integers.insert(randint(0, 100))
 
     sorted_list = BT_to_list(integers)
     print(sorted_list)
