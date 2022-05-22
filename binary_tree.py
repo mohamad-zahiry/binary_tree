@@ -4,18 +4,18 @@ class BinaryTree:
         self.left = None
         self.right = None
 
-    def child(self, value):
+    def insert(self, value):
         if value < self.value:
             if self.left is None:
                 self.left = BinaryTree(value)
             else:
-                self.left.child(value)
+                self.left.insert(value)
 
         elif value > self.value:
             if self.right is None:
                 self.right = BinaryTree(value)
             else:
-                self.right.child(value)
+                self.right.insert(value)
 
 
 def BT_to_list(node: BinaryTree, list_to_fill=None):
